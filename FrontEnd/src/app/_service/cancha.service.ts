@@ -15,6 +15,9 @@ export class CanchaService {
   listarCanchaPorId(id:number){
     return this.http.get<Cancha>(`${this.url}/${id}`);
   }
+  listarCanchaPorUsuario(id: number){
+    return this.http.get<Cancha[]>(`${this.url}/usuario/${id}`);
+  }
   registrar(cancha:Cancha){
     return this.http.post(this.url,cancha);
   }
