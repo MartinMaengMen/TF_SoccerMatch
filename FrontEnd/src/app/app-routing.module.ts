@@ -13,7 +13,7 @@ const routes: Routes = [
     {path:'nuevo',component:UsuarioEdicionComponent},
     {path:'edicion/:id',component:UsuarioEdicionComponent}
   ]},
-  {path:'cancha',component:CanchaComponent,children:[
+  {path:'cancha/:idUsuario',component:CanchaComponent,children:[
     {path:'nuevo',component:CanchaEdicionComponent},
     {path:'edicion/:id',component:CanchaEdicionComponent}
   ]},
