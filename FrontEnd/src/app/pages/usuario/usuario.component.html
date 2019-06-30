@@ -1,20 +1,26 @@
-<mat-card class="example-card">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Shiba Inu</mat-card-title>
-    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      bred for hunting.
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
-  </mat-card-actions>
-</mat-card>
+<form class="example-form" [formGroup]="form" #frmUsuario="ngForm">
+  <mat-form-field class="c-usuario">
+    <input matInput placeholder="Usuario" required formControlName='usuario'>
+  </mat-form-field>
+  <mat-form-field class="c-nombre">
+      <input matInput placeholder="Nombre" required formControlName='nombre'>
+    </mat-form-field>
+  <mat-form-field class="c-contraseña">
+    <input matInput placeholder="Contraseña" required formControlName='contraseña'>
+  </mat-form-field>
+  <mat-form-field class="c-ccontraseña">
+    <input matInput placeholder="Confirmar contraseña" required formControlName='ccontraseña'>
+  </mat-form-field>
+  
+  <mat-form-field class="c-dni">
+      <input matInput placeholder="DNI" required formControlName='dni'>
+    </mat-form-field>
+    <form class="example-form">
 
+        <mat-form-field class="c-telefono">
+          <span matPrefix>+1 &nbsp;</span>
+          <input type="tel" matInput placeholder="Telefono" required formControlName='telefono'>
+        </mat-form-field>
+        
+      </form>
+</form>

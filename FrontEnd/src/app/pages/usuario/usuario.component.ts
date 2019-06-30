@@ -8,8 +8,8 @@ import { UsuarioService } from 'src/app/_service/usuario.service';
   styleUrls: ['./usuario.component.css']
 })
 export class UsuarioComponent implements OnInit {
-dataSource:MatTableDataSource<Usuario>
-displayedColumns=['id','dni','nombre','numtelefono','username','password']
+dataSource:MatTableDataSource<Usuario>;
+displayedColumns=['id','dni','nombre','numtelefono','username','password'];
   constructor(private usuarioService:UsuarioService) { }
 
   ngOnInit() {
