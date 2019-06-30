@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.soccermatch.SoccerMatch.entity.Equipo;
 import com.soccermatch.SoccerMatch.entity.Participante;
 import com.soccermatch.SoccerMatch.service.IParticipanteService;
 
@@ -49,6 +50,18 @@ public class ParticipanteRestController {
 			return new ResponseEntity<Participante>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	
+	
+	@GetMapping(value = "/equipo/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity< List<Equipo> > fetchEquiposRecomendados(@PathVariable("id") Integer id) {
+		try {
+			List<Equipo> Equipo = Participanteservice.fetchEquiposRecomendados(id);
+			return new ResponseEntity< List<Equipo> >(Equipo, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity< List<Equipo> >(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
 	
 	@PostMapping( consumes = MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE )
 	public ResponseEntity<Participante> save( @Valid @RequestBody Participante Participante ) {

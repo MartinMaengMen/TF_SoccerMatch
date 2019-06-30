@@ -12,6 +12,8 @@ import { EquipoComponent } from './pages/equipo/equipo.component';
 import { CanchaComponent } from './pages/cancha/cancha.component';
 import { EquipoEdicionComponent } from './pages/equipo/equipo-edicion/equipo-edicion.component';
 import { CanchaEdicionComponent } from './pages/cancha/cancha-edicion/cancha-edicion.component';
+import { ParticipanteComponent } from './pages/participante/participante.component';
+import { ParticipanteEditComponent } from './pages/participante/participante-edit/participante-edit.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { CanchaEdicionComponent } from './pages/cancha/cancha-edicion/cancha-edi
     EquipoComponent,
     CanchaComponent,
     EquipoEdicionComponent,
-    CanchaEdicionComponent
+    CanchaEdicionComponent,
+    ParticipanteComponent,
+    ParticipanteEditComponent
   ],
   imports: [
     BrowserModule,

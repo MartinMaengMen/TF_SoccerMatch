@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.soccermatch.SoccerMatch.entity.Equipo;
 import com.soccermatch.SoccerMatch.entity.Usuario;
 import com.soccermatch.SoccerMatch.repository.IUsuarioRepository;
 import com.soccermatch.SoccerMatch.service.IUsuarioService;
@@ -49,9 +50,7 @@ public void deleteById(Integer id) throws Exception {
 @Transactional
 @Override
 public void deleteAll() throws Exception {
-	usuariorepository.deleteAll();
-	
+	usuariorepository.deleteAll();	
 }
-
 
 }

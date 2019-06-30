@@ -42,7 +42,19 @@
               <mat-icon>insert_drive_file</mat-icon>
               <span>Canchas</span>
           </button>
-          
+
+          <mat-divider></mat-divider>
+          <button mat-menu-item (click)="sidenav.toggle()" routerLink="/participante/misequipos" style="cursor: pointer" >
+              <mat-icon>insert_drive_file</mat-icon>
+              <span>Mis Equipos</span>
+          </button>
+
+          <mat-divider></mat-divider>
+          <button mat-menu-item (click)="sidenav.toggle()" routerLink="/participante/equiposrecomendados" style="cursor: pointer" >
+              <mat-icon>insert_drive_file</mat-icon>
+              <span>Equipos Recomendados</span>
+          </button>
+
       </mat-sidenav>
 
       <mat-sidenav-content>

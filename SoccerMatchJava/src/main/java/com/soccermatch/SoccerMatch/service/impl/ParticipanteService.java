@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.soccermatch.SoccerMatch.entity.Equipo;
 import com.soccermatch.SoccerMatch.entity.Participante;
 import com.soccermatch.SoccerMatch.repository.IParticipanteRepository;
 import com.soccermatch.SoccerMatch.service.IParticipanteService;
@@ -49,5 +50,12 @@ private IParticipanteRepository participanterepository;
 		participanterepository.deleteAll();
 		
 	}
+
+	@Override
+	public List<Equipo> fetchEquiposRecomendados(Integer id) throws Exception {
+		return participanterepository.fetchEquiposRecomendados(id);
+	}
+
+
 
 }
