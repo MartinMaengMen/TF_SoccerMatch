@@ -51,6 +51,10 @@ private ICanchaRepository cancharepository;
 		cancharepository.deleteAll();
 		
 	}
+	@Override
+	public List<Cancha> fetchByUsuarioId(Integer id) throws Exception {
+		return cancharepository.fetchByUsuarioId(id);
+	}
 
 
 

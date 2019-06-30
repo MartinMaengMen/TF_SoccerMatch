@@ -22,7 +22,7 @@ import com.soccermatch.SoccerMatch.entity.Cancha;
 import com.soccermatch.SoccerMatch.service.ICanchaService;
 
 @RestController
-@RequestMapping("/Cancha")
+@RequestMapping("/cancha")
 public class CanchaRestController {
 	@Autowired
 	private ICanchaService Canchaservice;
@@ -49,6 +49,17 @@ public class CanchaRestController {
 			return new ResponseEntity<Cancha>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	
+	@GetMapping(value = "/usuario/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity< List<Cancha> > fetchByUsuarioId(@PathVariable("id") Integer id) {
+		try {
+			List<Cancha> Cancha = Canchaservice.fetchByUsuarioId(id);
+			return new ResponseEntity< List<Cancha> >(Cancha, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity< List<Cancha> >(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
 	
 	@PostMapping( consumes = MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE )
 	public ResponseEntity<Cancha> save( @Valid @RequestBody Cancha Cancha ) {

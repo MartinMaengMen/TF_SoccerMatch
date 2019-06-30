@@ -7,7 +7,7 @@ import { HOST } from '../_shared/var.constant';
   providedIn: 'root'
 })
 export class CanchaService {
-  url: string = `${HOST}/Cancha`;
+  url: string = `${HOST}/cancha`;
   constructor(private http:HttpClient) { }
   listar(){
     return this.http.get<Cancha[]>(this.url);
