@@ -1,8 +1,13 @@
+import { Jugador } from './jugador'
+import { Propietario } from './propietario'
+
 export class Usuario {
     id:number;
+    jugador: Jugador;
+    propietario: Propietario;
     dni:number;
     nombre:string;
-    numtelefono:number;
+    numTelefono:number;
     username:string;
     password:string;
 }
