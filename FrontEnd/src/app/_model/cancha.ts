@@ -9,5 +9,5 @@ export class Cancha {
     alquileres: Alquiler[];
     nombre: string;
     direccion: string;
-    precioHora: number;
+    precioHora: number; 
 }
