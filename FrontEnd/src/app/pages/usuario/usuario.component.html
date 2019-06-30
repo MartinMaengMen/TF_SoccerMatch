@@ -1,26 +1,15 @@
-<form class="example-form" [formGroup]="form" #frmUsuario="ngForm">
-  <mat-form-field class="c-usuario">
+<form class="example-form" [formGroup]="form" (ngSubmit)="operar()" #frmUsuario="ngForm">
+    <h2>Login</h2>
+  <mat-form-field class="example-form">
     <input matInput placeholder="Usuario" required formControlName='usuario'>
   </mat-form-field>
-  <mat-form-field class="c-nombre">
-      <input matInput placeholder="Nombre" required formControlName='nombre'>
+  <mat-form-field class="example-form">
+      <input matInput placeholder="Contraseña" required formControlName='contraseña'>
     </mat-form-field>
-  <mat-form-field class="c-contraseña">
-    <input matInput placeholder="Contraseña" required formControlName='contraseña'>
-  </mat-form-field>
-  <mat-form-field class="c-ccontraseña">
-    <input matInput placeholder="Confirmar contraseña" required formControlName='ccontraseña'>
-  </mat-form-field>
-  
-  <mat-form-field class="c-dni">
-      <input matInput placeholder="DNI" required formControlName='dni'>
-    </mat-form-field>
-    <form class="example-form">
-
-        <mat-form-field class="c-telefono">
-          <span matPrefix>+1 &nbsp;</span>
-          <input type="tel" matInput placeholder="Telefono" required formControlName='telefono'>
-        </mat-form-field>
-        
-      </form>
+      <button class="button1" mat-raised-button color="primary" type="submit">
+          <span>Login</span>
+        </button>
+        <button class="button2" mat-raised-button color="accent" routerLink='/usuario/nuevo' type="button">
+          <span>Registrarse</span>
+        </button>
 </form>

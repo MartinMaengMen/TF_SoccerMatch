@@ -2,8 +2,15 @@
   min-width: 150px;
   max-width: 500px;
   width: 100%;
+margin: auto;
 }
 
 .example-full-width {
   width: 100%;
+}
+.button1{
+  margin: auto;
+}
+.button2{
+  margin-left:20px;
 }

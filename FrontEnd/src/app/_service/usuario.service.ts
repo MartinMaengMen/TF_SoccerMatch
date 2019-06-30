@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Usuario } from 'src/app/_model/usuario';
 import { HOST } from 'src/app/_shared/var.constant';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
   url: string = `${HOST}/usuario`;
+  usuarioCambio = new Subject< Usuario[] >();
   constructor( private http: HttpClient ) { }
 
   listar() {
