@@ -8,12 +8,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsuarioComponent } from './pages/usuario/usuario.component';
 import { UsuarioEdicionComponent } from './pages/usuario/usuario-edicion/usuario-edicion.component';
+import { EquipoComponent } from './pages/equipo/equipo.component';
+import { CanchaComponent } from './pages/cancha/cancha.component';
+import { EquipoEdicionComponent } from './pages/equipo/equipo-edicion/equipo-edicion.component';
+import { CanchaEdicionComponent } from './pages/cancha/cancha-edicion/cancha-edicion.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsuarioComponent,
-    UsuarioEdicionComponent
+    UsuarioEdicionComponent,
+    EquipoComponent,
+    CanchaComponent,
+    EquipoEdicionComponent,
+    CanchaEdicionComponent
   ],
   imports: [
     BrowserModule,

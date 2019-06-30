@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/_model/usuario';
 import { MatTableDataSource } from '@angular/material';
-import { UsuarioService } from 'src/app/_service/usuario/usuario.service';
+import { UsuarioService } from 'src/app/_service/usuario.service';
 @Component({
   selector: 'app-usuario',
   templateUrl: './usuario.component.html',
