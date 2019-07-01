@@ -36,7 +36,8 @@ const routes: Routes = [
     {path:'participante/misequipos',component:ParticipanteEditComponent},
     {path:'participante/equiposrecomendados',component:ParticipanteEditComponent}
   ]},
-
+  {path:'alquiler',component:ParticipanteComponent},
+    {path:'alquiler/nuevo',component:ParticipanteEditComponent}
 ];
 
 @NgModule({

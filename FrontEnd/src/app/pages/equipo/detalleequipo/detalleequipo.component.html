@@ -62,10 +62,15 @@
       </ng-container>
       
       <ng-container matColumnDef="estadoPagado">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Hora de inicio </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Estado de pago </mat-header-cell>
         <mat-cell *matCellDef="let row"> {{row.estadoPagado}}</mat-cell>
       </ng-container>
-
+      <ng-container matColumnDef="unirse">
+        <mat-header-cell *matHeaderCellDef>Unirse</mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <button mat-button color="accent">Unirse</button>
+        </mat-cell>
+      </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumnsAlquileres"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumnsAlquileres;">
 
@@ -78,6 +83,9 @@
 <br>
 
 <button mat-fab color="accent" style="float: right"  (click)="redirigir()">
+  <mat-icon>create</mat-icon>
+</button>
+<button mat-fab color="br" style="float: right"  (click)="redirigiralquiler()">
   <mat-icon>create</mat-icon>
 </button>
 <button mat-fab color="accent" style="float: left" routerLink='/equipo/recomendados/0'>
