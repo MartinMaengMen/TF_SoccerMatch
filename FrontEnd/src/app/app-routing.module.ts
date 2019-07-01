@@ -13,6 +13,8 @@ import { RecomendadosComponent } from './pages/equipo/recomendados/recomendados.
 
 
 const routes: Routes = [
+  { path: '', redirectTo: '/usuario', pathMatch: 'full' },
+  { path: '**', redirectTo: '/usuario', pathMatch: 'full' },
   {path:'usuario',component:UsuarioComponent},
   {path:'usuario/nuevo',component:UsuarioEdicionComponent},
   {path:'cancha',component:CanchaComponent,children:[
