@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.soccermatch.SoccerMatch.entity.Equipo;
 import com.soccermatch.SoccerMatch.entity.Participante;
+import com.soccermatch.SoccerMatch.entity.Usuario;
 import com.soccermatch.SoccerMatch.service.IParticipanteService;
 
 @RestController
@@ -63,6 +64,16 @@ public class ParticipanteRestController {
 		}
 	}
 	
+	@GetMapping(value = "/usuario/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity< List<Usuario> > fetchMiembrosDeEquipo(@PathVariable("id") Integer id) {
+		try {
+			List<Usuario> Equipo = Participanteservice.fetchMiembrosDeEquipo(id);
+			return new ResponseEntity< List<Usuario> >(Equipo, HttpStatus.OK);
+		} catch (Exception e) {
+			System.out.println(e);
+			return new ResponseEntity< List<Usuario> >(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 	
 	@PostMapping( consumes = MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE )
 	public ResponseEntity<Participante> save( @Valid @RequestBody Participante Participante ) {
