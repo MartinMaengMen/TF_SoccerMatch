@@ -12,10 +12,11 @@ import { AuthService } from 'src/app/_service/auth-service.service';
 export class RecomendadosComponent implements OnInit {
   id: number;
   dataSource:MatTableDataSource<Equipo>
-  displayedColumns=['idEquipo', 'nombre', 'descripcion', 'distrito']
+  displayedColumns=['idEquipo', 'nombre', 'descripcion', 'distrito', 'seleccionar']
   constructor(private participanteService:ParticipanteService, private authService: AuthService) { }
 
   ngOnInit() {
+    this.id = Number(this.authService.getIdUsuario());
     this.participanteService.listarRecomendados(Number(this.authService.getIdUsuario())).subscribe(data=>{this.dataSource=new MatTableDataSource(data);});
   }
 

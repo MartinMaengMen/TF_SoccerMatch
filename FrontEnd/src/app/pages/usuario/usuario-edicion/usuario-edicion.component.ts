@@ -3,6 +3,7 @@ import { Usuario } from 'src/app/_model/usuario';
 import { UsuarioService } from 'src/app/_service/usuario.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router, Params } from '@angular/router';
+import { AuthService } from 'src/app/_service/auth-service.service';
 @Component({
   selector: 'app-usuario-edicion',
   templateUrl: './usuario-edicion.component.html',
@@ -18,7 +19,7 @@ export class UsuarioEdicionComponent implements OnInit {
   usuario:Usuario;
   edicion: boolean = false;
 form:FormGroup;
-  constructor(private route: ActivatedRoute, private router: Router, private usuarioService:UsuarioService) {
+  constructor(private route: ActivatedRoute, private router: Router, private usuarioService:UsuarioService, private authService: AuthService) {
     this.form = new FormGroup( {
       'id':new FormControl(0),
       'usuario': new FormControl(''),
@@ -39,7 +40,7 @@ form:FormGroup;
     } )
   }
   initForm() {
-    if( this.edicion ) {
+    /*if( this.edicion ) {
       this.usuarioService.listarUsuarioPorId( this.id ).subscribe( data => {
         this.form = new FormGroup( {
           'id': new FormControl( data.id ),
@@ -50,15 +51,15 @@ form:FormGroup;
           'telefono': new FormControl( data.numTelefono )        
         });
       } );
-    }
+    }*/
   }
   operar() {
-    this.usuario.id = this.form.value['id'];
-    this.usuario.nombre = this.form.value['nombres'];
+    this.usuario.id = null;
+    this.usuario.nombre = this.form.value['nombre'];
     this.usuario.password = this.form.value['password'];
     this.usuario.dni = this.form.value['dni'];
     this.usuario.username = this.form.value['usuario'];
-    this.usuario.numTelefono = this.form.value['telefono'];
+    this.usuario.numtelefono = this.form.value['telefono'];
 
     if( this.edicion ) {
       this.usuarioService.modificar( this.usuario ).subscribe( data => {
@@ -72,10 +73,11 @@ form:FormGroup;
       this.usuarioService.registrar( this.usuario ).subscribe( data => {
         this.usuarioService.listar().subscribe( usuarios => {
           // para actualizar la lista
-          this.usuarioService.usuarioCambio.next(usuarios);
-        } );
-      } );
+            this.usuarioService.usuarioCambio.next(usuarios);
+        });
+      });
+
     }
-    this.router.navigate( [''] );
+    this.router.navigate( [`usuario`] );
   }
 }
