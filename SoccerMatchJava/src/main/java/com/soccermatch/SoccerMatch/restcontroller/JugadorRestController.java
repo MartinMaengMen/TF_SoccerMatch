@@ -56,6 +56,21 @@ public class JugadorRestController {
 		}
 	}
 
+	
+	@GetMapping(value = "usuario/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Jugador> fetchByUsuario(@PathVariable("id") Integer id) {
+		try {
+			Optional<Jugador> Jugador = Jugadorservice.findByUsuario(id);
+			if (Jugador.isPresent()) {
+				return new ResponseEntity<Jugador>(Jugador.get(), HttpStatus.OK);
+			} else {
+				return new ResponseEntity<Jugador>(HttpStatus.NOT_FOUND);
+			}
+		} catch (Exception e) {
+			return new ResponseEntity<Jugador>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Jugador> save(@Valid @RequestBody Jugador Jugador) {
 		try {

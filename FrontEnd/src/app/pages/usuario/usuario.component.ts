@@ -45,6 +45,10 @@ export class UsuarioComponent implements OnInit {
         this.authService.setUser(this.dataSource.data[i]);
         let token = this.usuario.id;
         this.authService.setIdUsuario(token);
+
+        //service de jugador->Find By usuario
+        //asignar el jugador.id a al auth
+
         //this.router.navigate( [`cancha/${this.usuario.id}`] );
         this.router.navigate([`equipo/recomendados/${this.authService.getIdUsuario}`])}
       }

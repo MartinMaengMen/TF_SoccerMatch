@@ -1,0 +1,82 @@
+<mat-toolbar>Detalle del Equipo</mat-toolbar>
+
+<div class="example-container mat-elevation-z8">
+
+  <router-outlet></router-outlet>
+
+  <mat-toolbar>Miembros</mat-toolbar>
+
+  <mat-table [dataSource]="dataSourceMiembros" matSort>
+    <ng-container matColumnDef="nombre">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.nombre}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="username">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Usuario </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.username}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="numtelefono">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Numero de Telefono </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.numtelefono}}</mat-cell>
+      </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumnsMiembros"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumnsMiembros;">
+
+    </mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+</div>
+
+<mat-toolbar>Alquileres</mat-toolbar>
+
+<div class="example-container mat-elevation-z8">
+
+  <router-outlet></router-outlet>
+
+
+  <mat-table [dataSource]="dataSourceAlquileres" matSort>
+    <ng-container matColumnDef="equipo">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Equipo </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.equipo.nombre}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="cancha">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Cancha </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.cancha.nombre}} </mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="numhoras">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Horas Reservadas </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.numHoras}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="horainicio">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Hora de inicio </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.horaInicio}}</mat-cell>
+      </ng-container>
+      
+      <ng-container matColumnDef="estadoPagado">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Hora de inicio </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.estadoPagado}}</mat-cell>
+      </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumnsAlquileres"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumnsAlquileres;">
+
+    </mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+</div>
+<br>
+
+<button mat-fab color="accent" style="float: right"  (click)="redirigir()">
+  <mat-icon>create</mat-icon>
+</button>

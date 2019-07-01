@@ -4,6 +4,8 @@ import { Participante } from 'src/app/_model/participante';
 import { HOST } from 'src/app/_shared/var.constant';
 import { Subject } from 'rxjs';
 import { Equipo } from '../_model/equipo';
+import { Alquiler } from '../_model/alquiler';
+import { Usuario } from '../_model/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +26,12 @@ export class ParticipanteService {
   }
   listarRecomendados(id: number){
     return this.http.get<Equipo[]>(`${this.url}/recomendados/${id}`);
+  }
+    listarAlquiler(id: number){
+    return this.http.get<Alquiler[]>(`${this.url}/alquiler/${id}`);
+  }
+  listarMiembros(id: number){
+    return this.http.get<Usuario[]>(`${this.url}/equipo/${id}`);
   }
   registrar( participante: Participante ) {
     return this.http.post(this.url, participante);

@@ -48,6 +48,14 @@ export class AuthService {
     localStorage.setItem("idEquipo", idEquipo);
   }
 
+  getIdJugador() {
+    return localStorage.getItem("idJugador");
+  }
+
+  setIdJugador(idJugador): void {
+    localStorage.setItem("idJugador", idJugador);
+  }
+
   getIdEquipo() {
     return localStorage.getItem("idEquipo");
   }
