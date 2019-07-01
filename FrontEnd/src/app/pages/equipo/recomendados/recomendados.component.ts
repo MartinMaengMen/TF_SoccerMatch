@@ -14,12 +14,14 @@ export class RecomendadosComponent implements OnInit {
   id: number;
   dataSource:MatTableDataSource<Equipo>
   displayedColumns=['idEquipo', 'nombre', 'descripcion', 'distrito', 'seleccionar']
-  constructor(private router:Router ,private participanteService:ParticipanteService, private authService: AuthService) { }
+  constructor(private router:Router ,private participanteService:ParticipanteService, private authService: AuthService) 
+  {
+    this.id = Number(this.authService.getIdJugador());
+    this.participanteService.listarRecomendados(Number(this.authService.getIdJugador())).subscribe(data=>{this.dataSource=new MatTableDataSource(data);});
+  }
 
   ngOnInit() {
-    this.id = Number(this.authService.getIdUsuario());
-    this.participanteService.listarRecomendados(Number(this.authService.getIdUsuario())).subscribe(data=>{this.dataSource=new MatTableDataSource(data);});
-  }
+    }
 
   redirigir(id: number)
   {

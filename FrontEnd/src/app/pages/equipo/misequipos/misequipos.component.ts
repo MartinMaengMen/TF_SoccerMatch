@@ -13,10 +13,11 @@ export class MisequiposComponent implements OnInit {
   dataSource:MatTableDataSource<Equipo>
   displayedColumns=['idEquipo', 'nombre', 'descripcion', 'distrito']
   constructor(private participanteService:ParticipanteService,
-    private authService : AuthService ) { }
+    private authService : AuthService ) {
+      this.participanteService.listarEquipoPorUsuario(Number(this.authService.getIdJugador())).subscribe(data=>{this.dataSource=new MatTableDataSource(data);});
+     }
 
   ngOnInit() {
-    this.participanteService.listarEquipoPorUsuario(Number(this.authService.getIdUsuario())).subscribe(data=>{this.dataSource=new MatTableDataSource(data);});
   }
 
 }
