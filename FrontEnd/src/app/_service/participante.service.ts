@@ -3,11 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { Participante } from 'src/app/_model/participante';
 import { HOST } from 'src/app/_shared/var.constant';
 import { Subject } from 'rxjs';
+import { Equipo } from '../_model/equipo';
 
 @Injectable({
   providedIn: 'root'
 })
-export class participanteService {
+export class ParticipanteService {
   url: string = `${HOST}/participante`;
   participanteCambio = new Subject< Participante[] >();
   constructor( private http: HttpClient ) { }
@@ -17,6 +18,12 @@ export class participanteService {
   }
   listarparticipantePorId( id: number ) {
     return this.http.get<Participante>(`${this.url}/${id}`);
+  }
+  listarEquipoPorUsuario(id: number){
+    return this.http.get<Equipo[]>(`${this.url}/jugador/${id}`);
+  }
+  listarRecomendados(id: number){
+    return this.http.get<Equipo[]>(`${this.url}/recomendados/${id}`);
   }
   registrar( participante: Participante ) {
     return this.http.post(this.url, participante);

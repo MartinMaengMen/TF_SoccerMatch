@@ -5,6 +5,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { MatTableDataSource } from '@angular/material';
 import { ThrowStmt } from '@angular/compiler';
+import { AuthService } from 'src/app/_service/auth-service.service';
 @Component({
   selector: 'app-usuario',
   templateUrl: './usuario.component.html',
@@ -15,7 +16,7 @@ export class UsuarioComponent implements OnInit {
   usuario:Usuario;
   form:FormGroup;
   data:[]
-  constructor(private route: ActivatedRoute, private router: Router, private usuarioService:UsuarioService) {
+  constructor(private router: Router, private usuarioService:UsuarioService, private authService: AuthService) {
     this.form = new FormGroup( {
       'usuario': new FormControl(''),
       'contraseña': new FormControl('')   
@@ -23,6 +24,7 @@ export class UsuarioComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.authService.logoutUser();
     this.usuario=new Usuario();
     this.usuarioService.listar().subscribe(data=>{this.dataSource=new MatTableDataSource(data);});
   }
@@ -33,7 +35,11 @@ export class UsuarioComponent implements OnInit {
       if(this.usuario.password==this.dataSource.data[i].password&&this.usuario.username==this.dataSource.data[i].username)
       { 
         this.usuario.id = this.dataSource.data[i].id;
-        this.router.navigate( [`cancha/${this.usuario.id}`] );
+        this.authService.setUser(this.dataSource.data[i]);
+        let token = this.usuario.id;
+        this.authService.setToken(token);
+        //this.router.navigate( [`cancha/${this.usuario.id}`] );
+        this.router.navigate([`equipo/recomendados/${this.usuario.id}`])
       }
   }
 }
