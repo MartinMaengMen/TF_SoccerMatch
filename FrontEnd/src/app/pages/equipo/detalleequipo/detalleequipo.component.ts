@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 import { ParticipanteService } from 'src/app/_service/participante.service';
 import { AuthService } from 'src/app/_service/auth-service.service';
-import { Equipo } from 'src/app/_model/equipo';
 import { Usuario } from 'src/app/_model/usuario';
 import { Alquiler } from 'src/app/_model/alquiler';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-detalleequipo',
@@ -13,25 +13,19 @@ import { Alquiler } from 'src/app/_model/alquiler';
 })
 export class DetalleequipoComponent implements OnInit {
   id: number;
-  dataSource:MatTableDataSource<Usuario>
-  displayedColumns=['Nombre', 'username', 'numtelf']
-  constructor(private participanteService:ParticipanteService, private authService: AuthService) { }
+  dataSourceMiembros:MatTableDataSource<Usuario>
+  dataSourceAlquileres:MatTableDataSource<Alquiler>
+  displayedColumnsMiembros=['nombre', 'username', 'numtelefono']
+  displayedColumnsAlquileres=['equipo', 'cancha', 'numhoras', 'horainicio','estadoPagado']
+  constructor(private route: Router, private participanteService:ParticipanteService, private authService: AuthService) { }
 
   ngOnInit() {
-    this.participanteService.listarMiembros(Number(this.authService.getIdEquipo())).subscribe(data=>{this.dataSource=new MatTableDataSource(data);});
-  }
-}
-
-export class detalleEquipo implements OnInit {
-
-  id: number;
-  dataSource:MatTableDataSource<Alquiler>
-  displayedColumns=['idequipo', 'idcancha', 'numhoras', 'horainicio','estadopagado']
-
-  constructor(private participanteService:ParticipanteService, private authService: AuthService) { }
-  ngOnInit() {
-    this.participanteService.listarAlquiler(Number(this.authService.getIdAlquiler())).subscribe(data=>{this.dataSource=new MatTableDataSource(data);});
-
+    this.participanteService.listarMiembros(Number(this.authService.getIdEquipo())).subscribe(data=>{this.dataSourceMiembros=new MatTableDataSource(data);});
+    this.participanteService.listarAlquiler(Number(this.authService.getIdEquipo())).subscribe(data=>{this.dataSourceAlquileres=new MatTableDataSource(data);});
   }
 
+  redirigir()
+  {
+    this.route.navigate(['/participante/nuevo']);
+  }
 }

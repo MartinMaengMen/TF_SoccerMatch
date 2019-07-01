@@ -34,7 +34,7 @@
     <ng-container matColumnDef="seleccionar">
         <mat-header-cell *matHeaderCellDef>Seleccionar</mat-header-cell>
         <mat-cell *matCellDef="let row">
-          <button mat-button color="accent" routerLink="/equipo/misequipos/{{id}}">Ver</button>
+          <button mat-button color="accent" (click)="redirigir(row.id)">Ver</button>
         </mat-cell>
       </ng-container>
 

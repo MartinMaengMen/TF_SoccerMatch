@@ -4,11 +4,12 @@
 
   <router-outlet></router-outlet>
 
+  <mat-toolbar>Miembros</mat-toolbar>
 
-  <mat-table [dataSource]="dataSource" matSort>
-    <ng-container matColumnDef="Nombre">
+  <mat-table [dataSource]="dataSourceMiembros" matSort>
+    <ng-container matColumnDef="nombre">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.Nombre}} </mat-cell>
+      <mat-cell *matCellDef="let row"> {{row.nombre}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="username">
@@ -16,13 +17,13 @@
         <mat-cell *matCellDef="let row"> {{row.username}}</mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="numtelf">
+      <ng-container matColumnDef="numtelefono">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Numero de Telefono </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.numtelf}}</mat-cell>
+        <mat-cell *matCellDef="let row"> {{row.numtelefono}}</mat-cell>
       </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;">
+    <mat-header-row *matHeaderRowDef="displayedColumnsMiembros"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumnsMiembros;">
 
     </mat-row>
   </mat-table>
@@ -31,42 +32,42 @@
 
 </div>
 
+<mat-toolbar>Alquileres</mat-toolbar>
+
 <div class="example-container mat-elevation-z8">
 
   <router-outlet></router-outlet>
 
 
-  <mat-table [dataSource]="dataSource" matSort>
-    <ng-container matColumnDef="idequipo">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> ID Equipo </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.idequipo}} </mat-cell>
+  <mat-table [dataSource]="dataSourceAlquileres" matSort>
+    <ng-container matColumnDef="equipo">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Equipo </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.equipo.nombre}} </mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="idcancha">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> ID Cancha </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.idcancha}} </mat-cell>
+    <ng-container matColumnDef="cancha">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Cancha </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.cancha.nombre}} </mat-cell>
     </ng-container>
 
 
     <ng-container matColumnDef="numhoras">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Horas Reservadas </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.numhoras}}</mat-cell>
+        <mat-cell *matCellDef="let row"> {{row.numHoras}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="horainicio">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Hora de inicio </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.horainicio}}</mat-cell>
+        <mat-cell *matCellDef="let row"> {{row.horaInicio}}</mat-cell>
       </ng-container>
       
-      <ng-container matColumnDef="estadopagado">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Estado Alquiler </mat-header-cell>
-          <div *ngIf="estadopagado; then thenBlock else elseBlock"></div>
-              <ng-template #thenBlock>Pagado.</ng-template>
-              <ng-template #elseBlock>No Pagado.</ng-template>          
-        </ng-container>
+      <ng-container matColumnDef="estadoPagado">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Hora de inicio </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.estadoPagado}}</mat-cell>
+      </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;">
+    <mat-header-row *matHeaderRowDef="displayedColumnsAlquileres"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumnsAlquileres;">
 
     </mat-row>
   </mat-table>
@@ -76,6 +77,6 @@
 </div>
 <br>
 
-<button mat-fab color="accent" style="float: right" routerLink='/cancha/nuevo'>
+<button mat-fab color="accent" style="float: right"  (click)="redirigir()">
   <mat-icon>create</mat-icon>
 </button>

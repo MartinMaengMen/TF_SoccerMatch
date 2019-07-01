@@ -51,6 +51,10 @@ private IJugadorRepository jugadorrepository;
 		jugadorrepository.deleteAll();
 		
 	}
+	@Override
+	public Optional<Jugador> findByUsuario(Integer id) throws Exception {
+		return jugadorrepository.findByUsuario(id);
+	}
 
 
 }
