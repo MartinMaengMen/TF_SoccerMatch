@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.soccermatch.SoccerMatch.entity.Equipo;
 import com.soccermatch.SoccerMatch.entity.Participante;
+import com.soccermatch.SoccerMatch.entity.Usuario;
 import com.soccermatch.SoccerMatch.repository.IParticipanteRepository;
 import com.soccermatch.SoccerMatch.service.IParticipanteService;
 
@@ -54,6 +55,11 @@ private IParticipanteRepository participanterepository;
 	@Override
 	public List<Equipo> fetchEquiposRecomendados(Integer id) throws Exception {
 		return participanterepository.fetchEquiposRecomendados(id);
+	}
+
+	@Override
+	public List<Usuario> fetchMiembrosDeEquipo(Integer id) throws Exception {
+		return participanterepository.fetchMiembrosDeEquipo(id);
 	}
 
 

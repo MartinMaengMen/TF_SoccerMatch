@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.soccermatch.SoccerMatch.entity.Equipo;
 import com.soccermatch.SoccerMatch.entity.Participante;
 import com.soccermatch.SoccerMatch.service.IEquipoService;
+import com.soccermatch.SoccerMatch.entity.Usuario;
 import com.soccermatch.SoccerMatch.service.IParticipanteService;
 
 @RestController
@@ -66,7 +67,7 @@ public class ParticipanteRestController {
 			return new ResponseEntity< List<Equipo> >(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	
+
 	@GetMapping(value = "/recomendados/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity< List<Equipo> > fetchEquiposRecomendados(@PathVariable("id") Integer id) {
 		try {
@@ -93,6 +94,17 @@ public class ParticipanteRestController {
 		} catch (Exception e) {
 			System.out.println(e);
 			return new ResponseEntity< List<Equipo> >(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	@GetMapping(value = "/equipo/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity< List<Usuario> > fetchMiembrosDeEquipo(@PathVariable("id") Integer id) {
+		try {
+			List<Usuario> Equipo = Participanteservice.fetchMiembrosDeEquipo(id);
+			return new ResponseEntity< List<Usuario> >(Equipo, HttpStatus.OK);
+		} catch (Exception e) {
+			System.out.println(e);
+			return new ResponseEntity< List<Usuario> >(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 	
