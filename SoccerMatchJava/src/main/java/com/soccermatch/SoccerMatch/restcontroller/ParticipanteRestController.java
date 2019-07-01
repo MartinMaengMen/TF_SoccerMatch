@@ -52,12 +52,13 @@ public class ParticipanteRestController {
 	}
 	
 	
-	@GetMapping(value = "/equipo/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/jugador/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity< List<Equipo> > fetchEquiposRecomendados(@PathVariable("id") Integer id) {
 		try {
 			List<Equipo> Equipo = Participanteservice.fetchEquiposRecomendados(id);
 			return new ResponseEntity< List<Equipo> >(Equipo, HttpStatus.OK);
 		} catch (Exception e) {
+			System.out.println(e);
 			return new ResponseEntity< List<Equipo> >(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}

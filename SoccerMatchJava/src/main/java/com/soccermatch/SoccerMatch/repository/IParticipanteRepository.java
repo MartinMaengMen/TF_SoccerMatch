@@ -11,7 +11,7 @@ import com.soccermatch.SoccerMatch.entity.Participante;
 @Repository
 public interface IParticipanteRepository extends JpaRepository<Participante,Integer> {
 
-	@Query("SELECT e FROM Equipo e where e.id = (SELECT p.equipo.id FROM Participante p where p.jugador.id = ?1 and p.equipo.id = e.id)")
+	@Query(value = "SELECT e FROM Equipo e where e.id = (SELECT p.equipo.id FROM Participante p where p.jugador.id = ?1 and p.equipo.id = e.id)")
 	List<Equipo>fetchEquiposRecomendados(Integer id); 
-	}
+}
 
