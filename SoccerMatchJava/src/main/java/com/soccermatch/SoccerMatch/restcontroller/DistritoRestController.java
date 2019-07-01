@@ -22,7 +22,7 @@ import com.soccermatch.SoccerMatch.entity.Distrito;
 import com.soccermatch.SoccerMatch.service.IDistritoService;
 
 @RestController
-@RequestMapping("/Distrito")
+@RequestMapping("/distrito")
 public class DistritoRestController {
 	@Autowired
 	private IDistritoService Distritoservice;

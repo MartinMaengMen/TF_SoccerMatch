@@ -24,7 +24,7 @@ import com.soccermatch.SoccerMatch.service.IPropietarioService;
 import com.soccermatch.SoccerMatch.service.IUsuarioService;
 
 @RestController
-@RequestMapping("/Propietario")
+@RequestMapping("/propietario")
 public class PropietarioRestController {
 	@Autowired
 	private IPropietarioService Propietarioservice;

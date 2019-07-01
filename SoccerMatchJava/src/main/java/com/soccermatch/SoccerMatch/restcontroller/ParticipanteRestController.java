@@ -1,5 +1,6 @@
 package com.soccermatch.SoccerMatch.restcontroller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,16 +19,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.soccermatch.SoccerMatch.entity.Alquiler;
 import com.soccermatch.SoccerMatch.entity.Equipo;
 import com.soccermatch.SoccerMatch.entity.Participante;
+import com.soccermatch.SoccerMatch.service.IEquipoService;
 import com.soccermatch.SoccerMatch.entity.Usuario;
 import com.soccermatch.SoccerMatch.service.IParticipanteService;
 
 @RestController
-@RequestMapping("/Participante")
+@RequestMapping("/participante")
 public class ParticipanteRestController {
 	@Autowired
 	private IParticipanteService Participanteservice;
+	@Autowired
+	private IEquipoService equipoService;
 	
 	@GetMapping( produces = MediaType.APPLICATION_JSON_VALUE )
 	public ResponseEntity< List<Participante> > fetchAll() {
@@ -54,7 +59,7 @@ public class ParticipanteRestController {
 	
 	
 	@GetMapping(value = "/jugador/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity< List<Equipo> > fetchEquiposRecomendados(@PathVariable("id") Integer id) {
+	public ResponseEntity< List<Equipo> > fetchEquipos(@PathVariable("id") Integer id) {
 		try {
 			List<Equipo> Equipo = Participanteservice.fetchEquiposRecomendados(id);
 			return new ResponseEntity< List<Equipo> >(Equipo, HttpStatus.OK);
@@ -63,8 +68,37 @@ public class ParticipanteRestController {
 			return new ResponseEntity< List<Equipo> >(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	
-	@GetMapping(value = "/usuario/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+
+	@GetMapping(value = "/recomendados/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity< List<Equipo> > fetchEquiposRecomendados(@PathVariable("id") Integer id) {
+		try {
+			List<Equipo> Equipos = Participanteservice.fetchEquiposRecomendados(id);
+			List<Equipo> Todos = equipoService.FindAll();
+			List<Equipo> Recomendados = new ArrayList<Equipo>();
+			Boolean estado = false;
+			for (Equipo equipo : Todos) {
+				for (Equipo equipo2 : Equipos) {
+					if(equipo.getId() == equipo2.getId())
+					{
+						estado = true;
+						break;
+					}
+				}
+				if(estado == false) {
+					Recomendados.add(equipo);
+				}
+				else {
+					estado = false;
+				}
+			}
+			return new ResponseEntity< List<Equipo> >(Recomendados, HttpStatus.OK);
+		} catch (Exception e) {
+			System.out.println(e);
+			return new ResponseEntity< List<Equipo> >(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	@GetMapping(value = "/equipo/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity< List<Usuario> > fetchMiembrosDeEquipo(@PathVariable("id") Integer id) {
 		try {
 			List<Usuario> Equipo = Participanteservice.fetchMiembrosDeEquipo(id);
@@ -72,6 +106,17 @@ public class ParticipanteRestController {
 		} catch (Exception e) {
 			System.out.println(e);
 			return new ResponseEntity< List<Usuario> >(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	@GetMapping(value = "/alquiler/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity< List<Alquiler> > fetchListAlquiler(@PathVariable("id") Integer id) {
+		try {
+			List<Alquiler> Equipo = Participanteservice.fetchListAlquiler(id);
+			return new ResponseEntity< List<Alquiler> >(Equipo, HttpStatus.OK);
+		} catch (Exception e) {
+			System.out.println(e);
+			return new ResponseEntity< List<Alquiler> >(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 	

@@ -7,9 +7,15 @@
   left: 0;
   right: 0;
 }
-
+.example-toolbar{
+  background: #464544;
+}
 .example-sidenav-container {  
   flex: 1;
+  background: #00bf8f;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #001510, #00bf8f);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #001510, #00bf8f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
 }
 
 .example-spacer {

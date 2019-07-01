@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 import { Equipo } from 'src/app/_model/equipo';
 import { EquipoService } from 'src/app/_service/equipo.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-equipo',
@@ -9,12 +10,14 @@ import { EquipoService } from 'src/app/_service/equipo.service';
   styleUrls: ['./equipo.component.css']
 })
 export class EquipoComponent implements OnInit {
+  id: number;
   dataSource:MatTableDataSource<Equipo>
-  displayedColumns=[]
-  constructor(private equipoService:EquipoService) { }
+  displayedColumns=['idEquipo', 'nombre', 'descripcion', 'distrito']
+  constructor(private router: Router, private equipoService:EquipoService) { }
 
   ngOnInit() {
-    this.equipoService.listar().subscribe(data=>{this.dataSource=new MatTableDataSource(data);});
+
+    //this.equipoService.listar().subscribe(data=>{this.dataSource=new MatTableDataSource(data);});
   }
 
 }

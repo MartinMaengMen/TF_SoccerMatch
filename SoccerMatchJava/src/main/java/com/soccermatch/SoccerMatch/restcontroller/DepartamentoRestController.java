@@ -22,7 +22,7 @@ import com.soccermatch.SoccerMatch.entity.Departamento;
 import com.soccermatch.SoccerMatch.service.IDepartamentoService;
 
 @RestController
-@RequestMapping("/Departamento")
+@RequestMapping("/departamento")
 public class DepartamentoRestController {
 	@Autowired
 	private IDepartamentoService Departamentoservice;

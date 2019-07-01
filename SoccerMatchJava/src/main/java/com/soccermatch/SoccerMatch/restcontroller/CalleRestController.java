@@ -22,7 +22,7 @@ import com.soccermatch.SoccerMatch.entity.Calle;
 import com.soccermatch.SoccerMatch.service.ICalleService;
 
 @RestController
-@RequestMapping("/Calle")
+@RequestMapping("/calle")
 public class CalleRestController {
 	@Autowired
 	private ICalleService Calleservice;

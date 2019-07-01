@@ -14,6 +14,8 @@ import { EquipoEdicionComponent } from './pages/equipo/equipo-edicion/equipo-edi
 import { CanchaEdicionComponent } from './pages/cancha/cancha-edicion/cancha-edicion.component';
 import { ParticipanteComponent } from './pages/participante/participante.component';
 import { ParticipanteEditComponent } from './pages/participante/participante-edit/participante-edit.component';
+import { MisequiposComponent } from './pages/equipo/misequipos/misequipos.component';
+import { RecomendadosComponent } from './pages/equipo/recomendados/recomendados.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ParticipanteEditComponent } from './pages/participante/participante-edi
     EquipoEdicionComponent,
     CanchaEdicionComponent,
     ParticipanteComponent,
-    ParticipanteEditComponent
+    ParticipanteEditComponent,
+    MisequiposComponent,
+    RecomendadosComponent
   ],
   imports: [
     BrowserModule,

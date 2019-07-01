@@ -22,7 +22,7 @@ import com.soccermatch.SoccerMatch.entity.Alquiler;
 import com.soccermatch.SoccerMatch.service.IAlquilerService;
 
 @RestController
-@RequestMapping("/Alquiler")
+@RequestMapping("/alquiler")
 public class AlquilerRestController {
 	@Autowired
 	private IAlquilerService Alquilerservice;
