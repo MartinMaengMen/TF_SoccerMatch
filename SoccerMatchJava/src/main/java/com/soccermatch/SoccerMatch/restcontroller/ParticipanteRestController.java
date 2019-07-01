@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.soccermatch.SoccerMatch.entity.Alquiler;
 import com.soccermatch.SoccerMatch.entity.Equipo;
 import com.soccermatch.SoccerMatch.entity.Participante;
 import com.soccermatch.SoccerMatch.service.IEquipoService;
@@ -105,6 +106,17 @@ public class ParticipanteRestController {
 		} catch (Exception e) {
 			System.out.println(e);
 			return new ResponseEntity< List<Usuario> >(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	@GetMapping(value = "/alquiler/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity< List<Alquiler> > fetchListAlquiler(@PathVariable("id") Integer id) {
+		try {
+			List<Alquiler> Equipo = Participanteservice.fetchListAlquiler(id);
+			return new ResponseEntity< List<Alquiler> >(Equipo, HttpStatus.OK);
+		} catch (Exception e) {
+			System.out.println(e);
+			return new ResponseEntity< List<Alquiler> >(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 	

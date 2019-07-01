@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.soccermatch.SoccerMatch.entity.Alquiler;
 import com.soccermatch.SoccerMatch.entity.Equipo;
 import com.soccermatch.SoccerMatch.entity.Participante;
 import com.soccermatch.SoccerMatch.entity.Usuario;
@@ -60,6 +61,12 @@ private IParticipanteRepository participanterepository;
 	@Override
 	public List<Usuario> fetchMiembrosDeEquipo(Integer id) throws Exception {
 		return participanterepository.fetchMiembrosDeEquipo(id);
+	}
+
+	@Override
+	public List<Alquiler> fetchListAlquiler(Integer id) throws Exception {
+		// TODO Auto-generated method stub
+		return participanterepository.fetchListAlquiler(id);
 	}
 
 
