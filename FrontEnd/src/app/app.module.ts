@@ -17,7 +17,7 @@ import { ParticipanteEditComponent } from './pages/participante/participante-edi
 import { MisequiposComponent } from './pages/equipo/misequipos/misequipos.component';
 import { RecomendadosComponent } from './pages/equipo/recomendados/recomendados.component';
 import { DetalleequipoComponent } from './pages/equipo/detalleequipo/detalleequipo.component';
-import { MisequiposEdicionComponent } from './pages/misequipos/misequipos-edicion/misequipos-edicion.component';
+import { MisequiposEdicionComponent } from './pages/equipo/misequipos/misequipos-edicion/misequipos-edicion.component';
 
 @NgModule({
   declarations: [

@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Equipo } from '../_model/equipo';
 import { HOST } from '../_shared/var.constant';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EquipoService {
-url:string=`${HOST}/equipo`;
+  url:string=`${HOST}/equipo`;
+  equipoCambio = new Subject< Equipo[] >();
   constructor(private http:HttpClient) { }
   listar(){
     return this.http.get<Equipo[]>(this.url);
