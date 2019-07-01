@@ -81,6 +81,7 @@ export class AuthService {
   logoutUser() {
     localStorage.removeItem("idUsuario");
     localStorage.removeItem("idEquipo");
+    localStorage.removeItem("idJugador")
     localStorage.removeItem("idAlquiler");
     localStorage.removeItem("currentUser");
   }
