@@ -18,6 +18,9 @@ export class JugadorService {
   listarJugadorPorId( id: number ) {
     return this.http.get<Jugador>(`${this.url}/${id}`);
   }
+  listarJugadorPorUsuario( id: number ) {
+    return this.http.get<Jugador[]>(`${this.url}/usuario/${id}`);
+  }
   registrar( Jugador: Jugador ) {
     return this.http.post(this.url, Jugador);
   }

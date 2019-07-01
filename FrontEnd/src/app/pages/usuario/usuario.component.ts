@@ -6,6 +6,9 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 import { MatTableDataSource } from '@angular/material';
 import { ThrowStmt } from '@angular/compiler';
 import { AuthService } from 'src/app/_service/auth-service.service';
+import { JugadorService } from 'src/app/_service/jugador.service';
+import { Jugador } from 'src/app/_model/jugador';
+import { isRegExp } from 'util';
 @Component({
   selector: 'app-usuario',
   templateUrl: './usuario.component.html',
@@ -13,12 +16,15 @@ import { AuthService } from 'src/app/_service/auth-service.service';
 })
 export class UsuarioComponent implements OnInit {
   dataSource:MatTableDataSource<Usuario>
+  dataSource2:MatTableDataSource<Jugador>
   usuario:Usuario;
+  jugador:Jugador;
   form:FormGroup;
   errorMessage='Usuario o contraseña incorrecta';
   data:[];
   show: boolean = false;
-  constructor(private router: Router, private usuarioService:UsuarioService, private authService: AuthService) {
+  constructor(private router: Router, private usuarioService:UsuarioService, private authService: AuthService, 
+    private jugadorService: JugadorService) {
     this.form = new FormGroup( {
       'usuario': new FormControl(''),
       'contraseña': new FormControl('')   
@@ -28,7 +34,9 @@ export class UsuarioComponent implements OnInit {
   ngOnInit() {
     this.authService.logoutUser();
     this.usuario=new Usuario();
+    this.jugador=new Jugador();
     this.usuarioService.listar().subscribe(data=>{this.dataSource=new MatTableDataSource(data);});
+    this.jugadorService.listar().subscribe(data=>{this.dataSource2=new MatTableDataSource(data);});
   }
   operar() {
     this.usuario.password = this.form.value['contraseña'];
@@ -46,11 +54,20 @@ export class UsuarioComponent implements OnInit {
         let token = this.usuario.id;
         this.authService.setIdUsuario(token);
 
+        for(var j = 0; j < this.dataSource2.data.length;j++)
+        {
+          if(Number(this.authService.getIdUsuario()) == this.dataSource2.data[j].usuario.id)
+          {
+            this.authService.setIdJugador(this.dataSource2.data[j].id);
+          }
+        }
         //service de jugador->Find By usuario
+        
+        //this.authService.setIdJugador(this.jugador.id);
         //asignar el jugador.id a al auth
 
         //this.router.navigate( [`cancha/${this.usuario.id}`] );
-        this.router.navigate([`equipo/recomendados/${this.authService.getIdUsuario}`])}
+        this.router.navigate([`equipo/recomendados/${this.authService.getIdJugador}`])}
       }
   }
 }
