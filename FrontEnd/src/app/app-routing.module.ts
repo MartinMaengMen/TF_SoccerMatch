@@ -12,6 +12,7 @@ import { ParticipanteEditComponent } from './pages/participante/participante-edi
 import { MisequiposComponent } from './pages/equipo/misequipos/misequipos.component';
 import { RecomendadosComponent } from './pages/equipo/recomendados/recomendados.component';
 import { MisequiposEdicionComponent } from './pages/equipo/misequipos/misequipos-edicion/misequipos-edicion.component';
+import { nuevoequipo } from './pages/equipo/nuevoequipo/nuevoequipo.component';
 
 
 const routes: Routes = [
@@ -23,7 +24,7 @@ const routes: Routes = [
   ]},
   {path:'equipo',component:EquipoComponent,children:[
     {path:'misequipos/:id',component:MisequiposComponent, children:[
-      {path: 'nuevo',component: MisequiposEdicionComponent},
+      {path: 'nuevo',component: nuevoequipo},
       {path: 'edicion/:id',component: MisequiposEdicionComponent}
     ]},
     {path:'recomendados/:id',component:RecomendadosComponent},
