@@ -16,6 +16,7 @@ import { ParticipanteComponent } from './pages/participante/participante.compone
 import { ParticipanteEditComponent } from './pages/participante/participante-edit/participante-edit.component';
 import { MisequiposComponent } from './pages/equipo/misequipos/misequipos.component';
 import { RecomendadosComponent } from './pages/equipo/recomendados/recomendados.component';
+import { DetalleequipoComponent } from './pages/equipo/detalleequipo/detalleequipo.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { RecomendadosComponent } from './pages/equipo/recomendados/recomendados.
     ParticipanteComponent,
     ParticipanteEditComponent,
     MisequiposComponent,
-    RecomendadosComponent
+    RecomendadosComponent,
+    DetalleequipoComponent
   ],
   imports: [
     BrowserModule,
