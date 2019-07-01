@@ -12,7 +12,7 @@ export class AppComponent {
   constructor(private router: Router, private authService : AuthService) { }
 
   ngOnInit() {
-    this.id = Number(this.authService.getIdUsuario());
+    this.id = Number(this.authService.getIdJugador());
     this.router.navigate(['/usuario']);
   }
 }
