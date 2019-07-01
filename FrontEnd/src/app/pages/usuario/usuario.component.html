@@ -1,15 +1,17 @@
 <form class="example-form" [formGroup]="form" (ngSubmit)="operar()" #frmUsuario="ngForm">
-    <h2>Login</h2>
+    <h2 id="ef2">Login</h2>
   <mat-form-field class="example-form">
     <input matInput placeholder="Usuario" required formControlName='usuario'>
   </mat-form-field>
   <mat-form-field class="example-form">
-      <input matInput placeholder="Contraseña" required formControlName='contraseña'>
+      <input matInput placeholder="Contraseña" type="password" required formControlName='contraseña'>
     </mat-form-field>
-      <button class="button1" mat-raised-button color="primary" type="submit">
+
+    <div class="error" *ngIf="show">{{ errorMessage }}</div>
+      <button class="button1" mat-raised-button color="accent" type="submit">
           <span>Login</span>
         </button>
         <button class="button2" mat-raised-button color="accent" routerLink='/usuario/nuevo' type="button">
           <span>Registrarse</span>
-        </button>
+            </button>
 </form>

@@ -15,7 +15,9 @@ export class UsuarioComponent implements OnInit {
   dataSource:MatTableDataSource<Usuario>
   usuario:Usuario;
   form:FormGroup;
-  data:[]
+  errorMessage='Usuario o contraseña incorrecta';
+  data:[];
+  show: boolean = false;
   constructor(private router: Router, private usuarioService:UsuarioService, private authService: AuthService) {
     this.form = new FormGroup( {
       'usuario': new FormControl(''),
@@ -31,7 +33,13 @@ export class UsuarioComponent implements OnInit {
   operar() {
     this.usuario.password = this.form.value['contraseña'];
     this.usuario.username = this.form.value['usuario'];
-    for(var i=0;i<this.dataSource.data.length;i++)
+    for(var i=0;i<this.dataSource.data.length;i++){ 
+      if(this.usuario.password===this.dataSource.data[i].password&&this.usuario.username===this.dataSource.data[i].username)
+        this.router.navigate( [''] );
+      else{
+          console.error('Usuario o contraseña incorrecta');
+          this.show=true;
+        }
       if(this.usuario.password==this.dataSource.data[i].password&&this.usuario.username==this.dataSource.data[i].username)
       { 
         this.usuario.id = this.dataSource.data[i].id;
@@ -39,7 +47,7 @@ export class UsuarioComponent implements OnInit {
         let token = this.usuario.id;
         this.authService.setIdUsuario(token);
         //this.router.navigate( [`cancha/${this.usuario.id}`] );
-        this.router.navigate([`equipo/recomendados/${this.usuario.id}`])
+        this.router.navigate([`equipo/recomendados/${this.usuario.id}`])}
       }
   }
 }

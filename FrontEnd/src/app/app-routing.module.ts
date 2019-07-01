@@ -13,10 +13,8 @@ import { RecomendadosComponent } from './pages/equipo/recomendados/recomendados.
 
 
 const routes: Routes = [
-  {path:'usuario',component:UsuarioComponent,children:[
-    {path:'nuevo',component:UsuarioEdicionComponent},
-    {path:'edicion/:id',component:UsuarioEdicionComponent}
-  ]},
+  {path:'usuario',component:UsuarioComponent},
+  {path:'usuario/nuevo',component:UsuarioEdicionComponent},
   {path:'cancha',component:CanchaComponent,children:[
     {path:'nuevo',component:CanchaEdicionComponent},
     {path:'edicion/:id',component:CanchaEdicionComponent}
@@ -32,7 +30,6 @@ const routes: Routes = [
     {path:'participante/misequipos',component:ParticipanteEditComponent},
     {path:'participante/equiposrecomendados',component:ParticipanteEditComponent}
   ]}
-
 
 ];
 
