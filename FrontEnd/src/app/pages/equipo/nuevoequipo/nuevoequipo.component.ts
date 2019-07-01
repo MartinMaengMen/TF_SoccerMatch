@@ -11,6 +11,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { participanteService } from 'src/app/_service/participante/participante.service';
 import { AppModule } from 'src/app/app.module';
 import { Usuario } from 'src/app/_model/usuario';
+import { JugadorService } from 'src/app/_service/jugador.service';
 
 @Component({
   selector: 'app-nuevoequipo',
@@ -31,7 +32,8 @@ export class nuevoequipo implements OnInit {
 
   constructor( private route: ActivatedRoute, private router: Router, 
     private equiposervice: EquipoService, private participanteservice : ParticipanteService,
-    private authservice: AuthService ) {
+    private authservice: AuthService,
+    private jugadorservice:JugadorService ) {
       // Crearmos el objeto para vincularlo y jalar los datos
       this.form = new FormGroup( {
         'nombre': new FormControl(0),
@@ -44,10 +46,7 @@ export class nuevoequipo implements OnInit {
   ngOnInit() {
     this.Equipo = new Equipo();
     this.Participante = new Participante();
-    this.route.params.subscribe( ( params: Params ) => {
-      this.id = params['distrito'];
-      this.initForm()
-    } )
+ 
   }
 
   initForm() {}
@@ -72,9 +71,12 @@ export class nuevoequipo implements OnInit {
         this.equiposervice.equipoCambio.next(Equipo);
       } );
 
-      this.Participante.id = Number(this.authservice.getIdJugador());
+      this.Participante.id = null;
+      this.Participante.jugador = null;
       this.Participante.esAdministrador = true;
       this.Participante.equipo = this.Equipo;
+      this.Participante.detallesparticipante = null;
 
+      this.participanteservice.registrar(this.Participante)
      });
 }}
