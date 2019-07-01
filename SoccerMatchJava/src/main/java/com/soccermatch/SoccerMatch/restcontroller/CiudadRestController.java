@@ -22,7 +22,7 @@ import com.soccermatch.SoccerMatch.entity.Ciudad;
 import com.soccermatch.SoccerMatch.service.ICiudadService;
 
 @RestController
-@RequestMapping("/Ciudad")
+@RequestMapping("/ciudad")
 public class CiudadRestController {
 	@Autowired
 	private ICiudadService Ciudadservice;

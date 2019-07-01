@@ -24,7 +24,7 @@ import com.soccermatch.SoccerMatch.service.IJugadorService;
 import com.soccermatch.SoccerMatch.service.IUsuarioService;
 
 @RestController
-@RequestMapping("/Jugador")
+@RequestMapping("/jugador")
 public class JugadorRestController {
 	@Autowired
 	private IJugadorService Jugadorservice;

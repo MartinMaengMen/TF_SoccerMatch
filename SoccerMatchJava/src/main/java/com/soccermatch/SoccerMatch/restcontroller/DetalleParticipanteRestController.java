@@ -22,7 +22,7 @@ import com.soccermatch.SoccerMatch.entity.DetalleParticipante;
 import com.soccermatch.SoccerMatch.service.IDetalleParticipanteService;
 
 @RestController
-@RequestMapping("/DetalleParticipante")
+@RequestMapping("/detalleparticipante")
 public class DetalleParticipanteRestController {
 	@Autowired
 	private IDetalleParticipanteService DetalleParticipanteservice;
