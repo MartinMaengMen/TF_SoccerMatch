@@ -36,12 +36,28 @@ export class AuthService {
     localStorage.setItem("currentUser", user_string);
   }
 
-  setToken(token): void {
-    localStorage.setItem("accessToken", token);
+  setIdUsuario(idUsuario): void {
+    localStorage.setItem("idUsuario", idUsuario);
   }
 
-  getToken() {
-    return localStorage.getItem("accessToken");
+  getIdUsuario() {
+    return localStorage.getItem("idusuario");
+  }
+
+  setIdEquipo(idEquipo): void {
+    localStorage.setItem("idEquipo", idEquipo);
+  }
+
+  getIdEquipo() {
+    return localStorage.getItem("idEquipo");
+  }
+
+  setIdAlquiler(idAlquiler): void {
+    localStorage.setItem("idAlquiler", idAlquiler);
+  }
+
+  getIdAlquiler() {
+    return localStorage.getItem("idAlquiler");
   }
 
   getCurrentUser(): Usuario {
@@ -55,7 +71,9 @@ export class AuthService {
   }
 
   logoutUser() {
-    localStorage.removeItem("accessToken");
+    localStorage.removeItem("idUsuario");
+    localStorage.removeItem("idEquipo");
+    localStorage.removeItem("idAlquiler");
     localStorage.removeItem("currentUser");
   }
 }

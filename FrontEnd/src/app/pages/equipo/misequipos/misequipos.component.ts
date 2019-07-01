@@ -16,7 +16,7 @@ export class MisequiposComponent implements OnInit {
     private authService : AuthService ) { }
 
   ngOnInit() {
-    this.participanteService.listarEquipoPorUsuario(Number(this.authService.getToken())).subscribe(data=>{this.dataSource=new MatTableDataSource(data);});
+    this.participanteService.listarEquipoPorUsuario(Number(this.authService.getIdUsuario())).subscribe(data=>{this.dataSource=new MatTableDataSource(data);});
   }
 
 }

@@ -11,6 +11,6 @@ export class AppComponent {
   constructor(private authService : AuthService) { }
 
   ngOnInit() {
-    this.id = Number(this.authService.getToken());
+    this.id = Number(this.authService.getIdUsuario());
   }
 }

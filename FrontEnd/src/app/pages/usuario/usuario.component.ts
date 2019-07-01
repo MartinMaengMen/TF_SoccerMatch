@@ -37,7 +37,7 @@ export class UsuarioComponent implements OnInit {
         this.usuario.id = this.dataSource.data[i].id;
         this.authService.setUser(this.dataSource.data[i]);
         let token = this.usuario.id;
-        this.authService.setToken(token);
+        this.authService.setIdUsuario(token);
         //this.router.navigate( [`cancha/${this.usuario.id}`] );
         this.router.navigate([`equipo/recomendados/${this.usuario.id}`])
       }

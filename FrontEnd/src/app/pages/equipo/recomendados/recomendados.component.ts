@@ -16,7 +16,7 @@ export class RecomendadosComponent implements OnInit {
   constructor(private participanteService:ParticipanteService, private authService: AuthService) { }
 
   ngOnInit() {
-    this.participanteService.listarRecomendados(Number(this.authService.getToken())).subscribe(data=>{this.dataSource=new MatTableDataSource(data);});
+    this.participanteService.listarRecomendados(Number(this.authService.getIdUsuario())).subscribe(data=>{this.dataSource=new MatTableDataSource(data);});
   }
 
 }
