@@ -17,6 +17,7 @@ import { ParticipanteEditComponent } from './pages/participante/participante-edi
 import { MisequiposComponent } from './pages/equipo/misequipos/misequipos.component';
 import { RecomendadosComponent } from './pages/equipo/recomendados/recomendados.component';
 import { DetalleequipoComponent } from './pages/equipo/detalleequipo/detalleequipo.component';
+import { NuevoequipoComponent } from './pages/equipo/nuevoequipo/nuevoequipo.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { DetalleequipoComponent } from './pages/equipo/detalleequipo/detalleequi
     ParticipanteEditComponent,
     MisequiposComponent,
     RecomendadosComponent,
-    DetalleequipoComponent
+    DetalleequipoComponent,
+    NuevoequipoComponent
   ],
   imports: [
     BrowserModule,
