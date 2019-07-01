@@ -35,9 +35,8 @@ export class UsuarioComponent implements OnInit {
     this.usuario.username = this.form.value['usuario'];
     for(var i=0;i<this.dataSource.data.length;i++){ 
       if(this.usuario.password===this.dataSource.data[i].password&&this.usuario.username===this.dataSource.data[i].username)
-        this.router.navigate( [''] );
+      {}  
       else{
-          console.error('Usuario o contraseña incorrecta');
           this.show=true;
         }
       if(this.usuario.password==this.dataSource.data[i].password&&this.usuario.username==this.dataSource.data[i].username)
@@ -47,7 +46,7 @@ export class UsuarioComponent implements OnInit {
         let token = this.usuario.id;
         this.authService.setIdUsuario(token);
         //this.router.navigate( [`cancha/${this.usuario.id}`] );
-        this.router.navigate([`equipo/recomendados/${this.usuario.id}`])}
+        this.router.navigate([`equipo/recomendados/${this.authService.getIdUsuario}`])}
       }
   }
 }

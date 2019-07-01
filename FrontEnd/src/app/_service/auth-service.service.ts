@@ -41,7 +41,7 @@ export class AuthService {
   }
 
   getIdUsuario() {
-    return localStorage.getItem("idusuario");
+    return localStorage.getItem("idUsuario");
   }
 
   setIdEquipo(idEquipo): void {
