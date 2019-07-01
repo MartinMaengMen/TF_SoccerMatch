@@ -2,7 +2,7 @@ export class Usuario {
     id:number;
     dni:number;
     nombre:string;
-    numTelefono:number;
+    numtelefono:number;
     password:string;
     username:string;
 }

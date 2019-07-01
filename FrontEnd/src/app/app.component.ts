@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from './_service/auth-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +9,10 @@ import { AuthService } from './_service/auth-service.service';
 })
 export class AppComponent {
   id: number
-  constructor(private authService : AuthService) { }
+  constructor(private router: Router, private authService : AuthService) { }
 
   ngOnInit() {
     this.id = Number(this.authService.getIdUsuario());
+    this.router.navigate(['/usuario']);
   }
 }

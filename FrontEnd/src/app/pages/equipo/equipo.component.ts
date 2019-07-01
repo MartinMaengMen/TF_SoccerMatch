@@ -16,8 +16,6 @@ export class EquipoComponent implements OnInit {
   constructor(private router: Router, private equipoService:EquipoService) { }
 
   ngOnInit() {
-
-    //this.equipoService.listar().subscribe(data=>{this.dataSource=new MatTableDataSource(data);});
   }
 
 }
