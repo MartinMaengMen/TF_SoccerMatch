@@ -24,7 +24,7 @@ export class MisequiposComponent implements OnInit {
   redirigir(id: number)
   {
     this.authService.setIdEquipo(id);
-    this.router.navigate([`equipo/detalleequipo/${this.authService.getIdEquipo}`]);
+    this.router.navigate([`equipo/detallemisequipos/${this.authService.getIdEquipo}`]);
   }
 
 }

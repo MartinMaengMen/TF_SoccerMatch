@@ -20,6 +20,7 @@ import { DetalleequipoComponent } from './pages/equipo/detalleequipo/detalleequi
 import { MisequiposEdicionComponent } from './pages/equipo/misequipos/misequipos-edicion/misequipos-edicion.component';
 import { AlquilerComponent } from './pages/alquiler/alquiler.component';
 import { AlquilerEdicionComponent } from './pages/alquiler/alquiler-edicion/alquiler-edicion.component';
+import { DetallemisequiposComponent } from './pages/equipo/detallemisequipos/detallemisequipos.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { AlquilerEdicionComponent } from './pages/alquiler/alquiler-edicion/alqu
     DetalleequipoComponent,
     MisequiposEdicionComponent,
     AlquilerComponent,
-    AlquilerEdicionComponent
+    AlquilerEdicionComponent,
+    DetallemisequiposComponent
   ],
   imports: [
     BrowserModule,

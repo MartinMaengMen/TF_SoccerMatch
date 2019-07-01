@@ -7,16 +7,17 @@ import { Alquiler } from 'src/app/_model/alquiler';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-detalleequipo',
-  templateUrl: './detalleequipo.component.html',
-  styleUrls: ['./detalleequipo.component.css']
+  selector: 'app-detallemisequipos',
+  templateUrl: './detallemisequipos.component.html',
+  styleUrls: ['./detallemisequipos.component.css']
 })
-export class DetalleequipoComponent implements OnInit {
+export class DetallemisequiposComponent implements OnInit {
+  
   id: number;
   dataSourceMiembros:MatTableDataSource<Usuario>
   dataSourceAlquileres:MatTableDataSource<Alquiler>
   displayedColumnsMiembros=['nombre', 'username', 'numtelefono']
-  displayedColumnsAlquileres=['equipo', 'cancha', 'numhoras', 'horainicio','estadoPagado']
+  displayedColumnsAlquileres=['equipo', 'cancha', 'numhoras', 'horainicio','estadoPagado','unirse']
   constructor(private route: Router, private participanteService:ParticipanteService, private authService: AuthService) { }
 
   ngOnInit() {
@@ -30,4 +31,5 @@ export class DetalleequipoComponent implements OnInit {
   redirigiralquiler(){
     this.route.navigate(['/alquiler/nuevo']);
   }
+
 }
