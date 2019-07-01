@@ -4,6 +4,8 @@ import { UsuarioService } from 'src/app/_service/usuario.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { AuthService } from 'src/app/_service/auth-service.service';
+import { Jugador } from 'src/app/_model/jugador';
+import { JugadorService } from 'src/app/_service/jugador.service';
 @Component({
   selector: 'app-usuario-edicion',
   templateUrl: './usuario-edicion.component.html',
@@ -18,8 +20,10 @@ export class UsuarioEdicionComponent implements OnInit {
   password:string;
   usuario:Usuario;
   edicion: boolean = false;
-form:FormGroup;
-  constructor(private route: ActivatedRoute, private router: Router, private usuarioService:UsuarioService, private authService: AuthService) {
+  jugador: Jugador;
+  direccion: string;
+  form:FormGroup;
+  constructor(private route: ActivatedRoute, private router: Router, private usuarioService:UsuarioService, private jugadorService:JugadorService, private authService: AuthService) {
     this.form = new FormGroup( {
       'id':new FormControl(0),
       'usuario': new FormControl(''),
@@ -27,12 +31,14 @@ form:FormGroup;
       'password': new FormControl(''),
       'cpassword': new FormControl(''),
       'dni': new FormControl(''),
-      'telefono': new FormControl('')        
+      'telefono': new FormControl(''),
+      'direccion': new FormControl('')
     });
    }
 
   ngOnInit() {
-    this.usuario = new Usuario();
+    //Acá crea el objeto de jugador
+    this.jugador = new Jugador();
     this.route.params.subscribe( ( params: Params ) => {
       this.id = params['id'];
       this.edicion = params['id'] != null;
@@ -54,26 +60,32 @@ form:FormGroup;
     }*/
   }
   operar() {
-    this.usuario.id = null;
-    this.usuario.nombre = this.form.value['nombre'];
-    this.usuario.password = this.form.value['password'];
-    this.usuario.dni = this.form.value['dni'];
-    this.usuario.username = this.form.value['usuario'];
-    this.usuario.numtelefono = this.form.value['telefono'];
+    //acá crea el objeto de Usuario necesario para insertar en la base de datos y lo vincula con el objeto de jugador ya creado
+    this.jugador.usuario = new Usuario();
+    this.jugador.usuario.id = null;
+    this.jugador.usuario.nombre = this.form.value['nombre'];
+    this.jugador.usuario.password = this.form.value['password'];
+    this.jugador.usuario.dni = this.form.value['dni'];
+    this.jugador.usuario.username = this.form.value['usuario'];
+    this.jugador.usuario.numtelefono = this.form.value['telefono'];
+
+    //añadiendo jugador
+    this.jugador.id = null;
+    this.jugador.direccion = this.form.value['direccion'];
 
     if( this.edicion ) {
-      this.usuarioService.modificar( this.usuario ).subscribe( data => {
-        this.usuarioService.listar().subscribe( usuarios => {
+      this.jugadorService.modificar( this.jugador ).subscribe( data => {
+        this.jugadorService.listar().subscribe( jugadores => {
           // para actualizar la lista
-          this.usuarioService.usuarioCambio.next(usuarios);
+          this.jugadorService.JugadorCambio.next(jugadores);
         } );
       } );
     }
     else {
-      this.usuarioService.registrar( this.usuario ).subscribe( data => {
-        this.usuarioService.listar().subscribe( usuarios => {
+      this.jugadorService.registrar( this.jugador ).subscribe( data => {
+        this.jugadorService.listar().subscribe( jugadores => {
           // para actualizar la lista
-            this.usuarioService.usuarioCambio.next(usuarios);
+            this.jugadorService.JugadorCambio.next(jugadores);
         });
       });
 

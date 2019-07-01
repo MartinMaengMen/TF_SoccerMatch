@@ -11,5 +11,4 @@ export class Alquiler {
     descuento: number;
     total: number;
     estadoPagado: Boolean;
-    detallesparticipante: DetalleParticipante[];
 }
