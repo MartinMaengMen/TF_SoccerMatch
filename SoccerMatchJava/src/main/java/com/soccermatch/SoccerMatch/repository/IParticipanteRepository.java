@@ -19,6 +19,7 @@ public interface IParticipanteRepository extends JpaRepository<Participante,Inte
 	@Query("select u from Usuario u join Jugador j on u.id = j.usuario.id where j.id = ( select p.jugador.id from Participante p where p.equipo.id = ?1 and p.jugador.id = j.id)")
 	List<Usuario>fetchMiembrosDeEquipo(Integer id);
 	
+	
 	@Query("select a from Alquiler a where a.equipo.id = ?1")
 	List<Alquiler>fetchListAlquiler(Integer id);
 }
