@@ -101,8 +101,8 @@ public class ParticipanteRestController {
 	@GetMapping(value = "/equipo/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity< List<Usuario> > fetchMiembrosDeEquipo(@PathVariable("id") Integer id) {
 		try {
-			List<Usuario> Equipo = Participanteservice.fetchMiembrosDeEquipo(id);
-			return new ResponseEntity< List<Usuario> >(Equipo, HttpStatus.OK);
+			List<Usuario> miembros = Participanteservice.fetchMiembrosDeEquipo(id);
+			return new ResponseEntity< List<Usuario> >(miembros, HttpStatus.OK);
 		} catch (Exception e) {
 			System.out.println(e);
 			return new ResponseEntity< List<Usuario> >(HttpStatus.INTERNAL_SERVER_ERROR);

@@ -36,6 +36,7 @@ public class EquipoRestController {
 			return new ResponseEntity< List<Equipo> >(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	
 	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity< Equipo > fetchById(@PathVariable("id") Integer id) {
 		try {
