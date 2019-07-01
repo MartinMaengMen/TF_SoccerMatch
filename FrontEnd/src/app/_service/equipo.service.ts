@@ -8,8 +8,13 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class EquipoService {
+<<<<<<< HEAD
 url:string=`${HOST}/equipo`;
 equipoCambio = new Subject< Equipo[] >();
+=======
+  url:string=`${HOST}/equipo`;
+  equipoCambio = new Subject< Equipo[] >();
+>>>>>>> 26b122fd9bed01d64b8447b1fefccf0af2049939
   constructor(private http:HttpClient) { }
   listar(){
     return this.http.get<Equipo[]>(this.url);

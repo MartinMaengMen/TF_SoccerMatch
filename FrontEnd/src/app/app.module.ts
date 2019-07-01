@@ -18,6 +18,8 @@ import { MisequiposComponent } from './pages/equipo/misequipos/misequipos.compon
 import { RecomendadosComponent } from './pages/equipo/recomendados/recomendados.component';
 import { DetalleequipoComponent } from './pages/equipo/detalleequipo/detalleequipo.component';
 import { MisequiposEdicionComponent } from './pages/equipo/misequipos/misequipos-edicion/misequipos-edicion.component';
+import { AlquilerComponent } from './pages/alquiler/alquiler.component';
+import { AlquilerEdicionComponent } from './pages/alquiler/alquiler-edicion/alquiler-edicion.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { MisequiposEdicionComponent } from './pages/equipo/misequipos/misequipos
     MisequiposComponent,
     RecomendadosComponent,
     DetalleequipoComponent,
-    MisequiposEdicionComponent
+    MisequiposEdicionComponent,
+    AlquilerComponent,
+    AlquilerEdicionComponent
   ],
   imports: [
     BrowserModule,
