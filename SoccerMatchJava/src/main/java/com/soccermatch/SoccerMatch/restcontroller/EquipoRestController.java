@@ -22,7 +22,7 @@ import com.soccermatch.SoccerMatch.entity.Equipo;
 import com.soccermatch.SoccerMatch.service.IEquipoService;
 
 @RestController
-@RequestMapping("/Equipo")
+@RequestMapping("/equipo")
 public class EquipoRestController {
 	@Autowired
 	private IEquipoService Equiposervice;

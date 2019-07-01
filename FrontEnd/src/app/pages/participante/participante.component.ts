@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource} from '@angular/material'
 import { Participante } from 'src/app/_model/participante';
-import { participanteService } from 'src/app/_service/participante.service';
+import { ParticipanteService } from 'src/app/_service/participante.service';
 
 @Component({
   selector: 'app-participante',
