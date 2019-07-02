@@ -6,6 +6,6 @@ export class Participante{
     id: number;
     jugador: Jugador;
     equipo: Equipo;
-    esAdministrador: Boolean;
+    esadministrador: Boolean;
     detallesparticipante: DetalleParticipante[];
 }
