@@ -20,7 +20,11 @@ import { DetalleequipoComponent } from './pages/equipo/detalleequipo/detalleequi
 import { MisequiposEdicionComponent } from './pages/equipo/misequipos/misequipos-edicion/misequipos-edicion.component';
 import { AlquilerComponent } from './pages/alquiler/alquiler.component';
 import { AlquilerEdicionComponent } from './pages/alquiler/alquiler-edicion/alquiler-edicion.component';
+<<<<<<< HEAD
+import { nuevoequipo } from './pages/equipo/nuevoequipo/nuevoequipo.component';
+=======
 import { DetallemisequiposComponent } from './pages/equipo/detallemisequipos/detallemisequipos.component';
+>>>>>>> 26bd4da168b8796b4c0c9a196160870df7a6b659
 
 @NgModule({
   declarations: [
@@ -39,7 +43,11 @@ import { DetallemisequiposComponent } from './pages/equipo/detallemisequipos/det
     MisequiposEdicionComponent,
     AlquilerComponent,
     AlquilerEdicionComponent,
+<<<<<<< HEAD
+    nuevoequipo
+=======
     DetallemisequiposComponent
+>>>>>>> 26bd4da168b8796b4c0c9a196160870df7a6b659
   ],
   imports: [
     BrowserModule,

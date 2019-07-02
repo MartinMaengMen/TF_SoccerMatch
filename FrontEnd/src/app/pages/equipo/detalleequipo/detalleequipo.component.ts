@@ -16,7 +16,7 @@ export class DetalleequipoComponent implements OnInit {
   dataSourceMiembros:MatTableDataSource<Usuario>
   dataSourceAlquileres:MatTableDataSource<Alquiler>
   displayedColumnsMiembros=['nombre', 'username', 'numtelefono']
-  displayedColumnsAlquileres=['equipo', 'cancha', 'numhoras', 'horainicio','estadoPagado']
+  displayedColumnsAlquileres=['equipo', 'cancha', 'numhoras', 'horainicio','estadoPagado','unirse']
   constructor(private route: Router, private participanteService:ParticipanteService, private authService: AuthService) { }
 
   ngOnInit() {
