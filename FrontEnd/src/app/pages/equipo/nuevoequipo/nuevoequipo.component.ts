@@ -72,7 +72,7 @@ export class nuevoequipo implements OnInit {
       } );
 
       this.Participante.id = null;
-      this.Participante.jugador = null;
+      this.Participante.jugador = this.jugadorservice.listarJugadorPorId(Number(this.authservice.getIdJugador()))[0];
       this.Participante.esadministrador = true;
       this.Participante.equipo = this.Equipo;
       this.Participante.detallesparticipante = null;
