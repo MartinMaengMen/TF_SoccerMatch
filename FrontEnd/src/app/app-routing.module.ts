@@ -13,6 +13,8 @@ import { MisequiposComponent } from './pages/equipo/misequipos/misequipos.compon
 import { RecomendadosComponent } from './pages/equipo/recomendados/recomendados.component';
 import { MisequiposEdicionComponent } from './pages/equipo/misequipos/misequipos-edicion/misequipos-edicion.component';
 import { DetallemisequiposComponent } from './pages/equipo/detallemisequipos/detallemisequipos.component'
+import { AlquilerEdicionComponent } from './pages/alquiler/alquiler-edicion/alquiler-edicion.component'
+import { AlquilerComponent } from './pages/alquiler/alquiler.component'
 
 
 const routes: Routes = [
@@ -38,8 +40,8 @@ const routes: Routes = [
     {path:'participante/misequipos',component:ParticipanteEditComponent},
     {path:'participante/equiposrecomendados',component:ParticipanteEditComponent}
   ]},
-  {path:'alquiler',component:ParticipanteComponent},
-    {path:'alquiler/nuevo',component:ParticipanteEditComponent}
+  {path:'alquiler',component:AlquilerComponent},
+    {path:'alquiler/nuevo',component:AlquilerEdicionComponent}
 ];
 
 @NgModule({

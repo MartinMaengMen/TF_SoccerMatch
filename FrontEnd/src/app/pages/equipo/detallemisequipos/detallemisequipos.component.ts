@@ -21,12 +21,9 @@ export class DetallemisequiposComponent implements OnInit {
   constructor(private route: Router, private participanteService:ParticipanteService, private authService: AuthService) { }
 
   ngOnInit() {
+    this.id = Number(this.authService.getIdJugador());
     this.participanteService.listarMiembros(Number(this.authService.getIdEquipo())).subscribe(data=>{this.dataSourceMiembros=new MatTableDataSource(data);});
     this.participanteService.listarAlquiler(Number(this.authService.getIdEquipo())).subscribe(data=>{this.dataSourceAlquileres=new MatTableDataSource(data);});
-  }
-  redirigir()
-  {
-    this.route.navigate(['/participante/nuevo']);
   }
   redirigiralquiler(){
     this.route.navigate(['/alquiler/nuevo']);

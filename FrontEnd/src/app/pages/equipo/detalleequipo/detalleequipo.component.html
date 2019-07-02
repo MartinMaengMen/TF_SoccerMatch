@@ -77,9 +77,11 @@
 </div>
 <br>
 
-<button mat-fab color="accent" style="float: right"  (click)="redirigir()">
+<button mat-raised-button color="accent" style="float: right"  (click)="redirigir()">
   <mat-icon>create</mat-icon>
+  <span>Unirse</span>
 </button>
-<button mat-fab color="accent" style="float: left" routerLink='/equipo/recomendados/0'>
+<button mat-raised-button color="accent"  style="float: left" routerLink='/equipo/recomendados/{{id}}'>
   <mat-icon>arrow_back</mat-icon>
+  <span>Volver</span>
 </button>

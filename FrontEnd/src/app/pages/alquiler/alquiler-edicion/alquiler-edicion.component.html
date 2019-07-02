@@ -1,17 +1,19 @@
-<mat-card>Ingrese los datos del Alquiler</mat-card>
+<mat-toolbar>Ingrese los datos del Alquiler</mat-toolbar>
 
 <br>
 
 <form class="example-container" [formGroup]="form" (ngSubmit)="grabar()" #frmEstudiante="ngForm">
 
-  <div [hidden]="true">
- <mat-form-field class="example-full-width">
-    <input matInput placeholder="ID" required formControlName="id">
-    </mat-form-field>
-  </div>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Horas" required formControlName="numHoras">
+  </mat-form-field>
 
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="Horas" required formControlName="horas">
+    <input matInput placeholder="Fecha Inicio" required formControlName="horaInicio" type="datetime-local">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Id Cancha" required formControlName="idCancha">
   </mat-form-field>
   
   <!-- <button mat-raised-button color="primary" type="submit" [disabled]="frmPaciente.invalid">-->
@@ -19,8 +21,47 @@
     <mat-icon>done</mat-icon>
     <span>Guardar</span>
   </button>
-  <button mat-raised-button color="accent" routerLink='/equipo/misequipos/0' type="button">
+  <button mat-raised-button color="accent" routerLink='/equipo/misequipos/{{idEquipo}}' type="button">
     <mat-icon>close</mat-icon>
     <span>Cancelar</span>
   </button>
+
 </form>
+<mat-toolbar>Guia de Canchas</mat-toolbar>
+<div class="example-container mat-elevation-z8">
+
+  <mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="idCancha">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="nombre">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.nombre}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="direccion">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Direccion </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.direccion}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="preciohora">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> PrecioHora </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.precioHora }}</mat-cell>
+      </ng-container>
+
+    <ng-container matColumnDef="propietario">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Propietario </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.propietario.usuario.nombre}}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+
+    </mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+</div>
