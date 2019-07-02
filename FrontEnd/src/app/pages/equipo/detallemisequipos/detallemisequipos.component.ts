@@ -14,10 +14,11 @@ import { Router } from '@angular/router';
 export class DetallemisequiposComponent implements OnInit {
   
   id: number;
+  mostar: Boolean;
   dataSourceMiembros:MatTableDataSource<Usuario>
   dataSourceAlquileres:MatTableDataSource<Alquiler>
   displayedColumnsMiembros=['nombre', 'username', 'numtelefono']
-  displayedColumnsAlquileres=['equipo', 'cancha', 'numhoras', 'horainicio','estadoPagado','unirse']
+  displayedColumnsAlquileres=['equipo', 'cancha', 'distrito','numhoras', 'horainicio']
   constructor(private route: Router, private participanteService:ParticipanteService, private authService: AuthService) { }
 
   ngOnInit() {

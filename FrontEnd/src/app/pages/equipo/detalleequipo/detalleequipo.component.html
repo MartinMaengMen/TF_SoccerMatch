@@ -50,6 +50,11 @@
       <mat-cell *matCellDef="let row"> {{row.cancha.nombre}} </mat-cell>
     </ng-container>
 
+    <ng-container matColumnDef="distrito">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Distrito </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.cancha.calle.distrito.nombre}} </mat-cell>
+      </ng-container>
+
 
     <ng-container matColumnDef="numhoras">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Horas Reservadas </mat-header-cell>
@@ -59,11 +64,6 @@
       <ng-container matColumnDef="horainicio">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Hora de inicio </mat-header-cell>
         <mat-cell *matCellDef="let row"> {{row.horaInicio}}</mat-cell>
-      </ng-container>
-      
-      <ng-container matColumnDef="estadoPagado">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Estado de pago </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.estadoPagado}}</mat-cell>
       </ng-container>
       
     <mat-header-row *matHeaderRowDef="displayedColumnsAlquileres"></mat-header-row>

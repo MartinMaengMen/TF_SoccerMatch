@@ -4,12 +4,6 @@
 
   <router-outlet></router-outlet>
 
-  <div class="example-header">
-    <mat-form-field>
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar Equipo">
-    </mat-form-field>
-  </div>
-
   <mat-table [dataSource]="dataSource" matSort>
     <ng-container matColumnDef="idEquipo">
       <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
