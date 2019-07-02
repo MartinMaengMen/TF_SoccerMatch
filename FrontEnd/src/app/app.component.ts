@@ -15,4 +15,8 @@ export class AppComponent {
     this.id = Number(this.authService.getIdJugador());
     this.router.navigate(['/usuario']);
   }
+  obtenerJugador()
+  {
+    return Number(this.authService.getIdJugador());
+  }
 }
