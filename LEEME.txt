@@ -1,0 +1,48 @@
+INTEGRANTES DEL GRUPO:
+•	Adrian Alexander Crespo Ames (U201711778)
+•	Jorge Daniel Vital Rodriguez (U201718971)
+•	Martin Maeng Mem Ng Cubas (U201520759)
+•	Renato Daniel Ballon Fleischman (U201517500)
+•	Fredy Daniel Cerrón Gomez (U201313176)
+
+---------------------------------------------------------------------------------------------
+Tablas q ya deben venir llenadas: Departamente, Ciudad, Distrito, Calle, Propietario, Cancha.
+---------------------------------------------------------------------------------------------
+INSERTS BÁSICOS:
+En el documento de inserts adjuntado
+---------------------------------------------------------------------------------------------
+Instalar los node_modules con el comando: npm install -i
+---------------------------------------------------------------------------------------------
+FLUJO DE LA APLCIACION:
+1. Se debe loguear a un jugador o, en todo caso, registrar uno desde el login.
+
+2. Al loguearse se le muestran automáticamente los equipos recomendados.
+
+3. Presionar en "Ver" para visualizar la información del equipo.
+
+4. Se le mostrará un listado de los miembros del equipo y un listado de los alquileres pertenecientes a ese equipo.
+
+5. En la parte inferior tiene dos botones, uno para volver y otro si es que desea unirse a aquel grupo.
+
+6. Si desea volver, presione el botón correspondiente y se volverá al listado de equipos recomendados.
+
+7. Si desea unirse al grupo, presione el botón correspondiente. Se le mostrará una mensaje de exito y luego se le redirigirá a la lista de los equipos correspondientes al usuario.
+
+8. Puede presionar en "Ver" para visualizar el detalle de un grupo.
+
+9. En esta sección, se mostrará el listado de los integrantes del grupo y de sus alguileres.
+
+10. Adicionalmente, ya que ya es parte de ese grupo, se le mostrará un botón de "Nuevo Alquiler".
+
+11. Si desea hacer un nuevo alquiler, debe presionar en el botón correspondiente.
+
+12. Se le mostrará un formulario el cual debe ser rellenado por el jugador. Debajo del formulario se encuentra una lista de canchas con el objetivo de que el usuario pueda guiarse para así rellenar el campo de "id Cancha".
+
+13. Al presionar "Guardar" se guardará la reserva y se le redirigirá a los grupos pertenecientes al usuario. En caso contrario, puede presionar "Cancelar".
+
+14. Puede comprobar que el alquiler se realizó correctamente ingresando al equipo correspondiente.
+
+15. Adicionalmente, se implementó un Menú Hamburguesa que contiene accesos directos a "Mis equipos" y "Equipos Recomendados".
+
+16. Para Cerrar Sesión, debe dirigirse a la parte superior derecha de la pantalla. Ahi encontrará un menú señalizado con tres puntos. Darle click ahi y seleccionar "Cerrar Sesión". Se le redirigirá al Log In.
+---------------------------------------------------------------------------------------------------
